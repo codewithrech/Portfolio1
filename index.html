@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Shizuru&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="./firebase.js"></script>
     <script src="script.js"></script>
 </head>
 
@@ -42,9 +46,9 @@
         </div>
         <!--todo wrapper-->
         <div class="todo-items-wrapper">
-             <!--todo items-->
+            <!--todo items-->
             <div class="todo-items">
-                 <!--todo item-->
+                <!--todo item-->
                 <div class="todo-item">
                     <div class="check">
                         <div class="check-mark">
@@ -93,26 +97,26 @@
                         practice javaScript
                     </div>
                 </div>
-                
-                 <!--todo item end-->
+
+                <!--todo item end-->
             </div>
-             <!--todo items end-->
+            <!--todo items end-->
             <div class="todo-items-info">
-            <div class="items-left">
-                5items left
-            </div>
-            <div class="items-status">
-                <span class="active">ALL</span>
-                <span>Active</span>
-                <span>Completed</span>
-            </div>
-            <div class="items-clear">
-                <span>Clear Completed</span>
+                <div class="items-left">
+                    5items left
+                </div>
+                <div class="items-status">
+                    <span class="active">ALL</span>
+                    <span>Active</span>
+                    <span>Completed</span>
+                </div>
+                <div class="items-clear">
+                    <span>Clear Completed</span>
 
-            </div>
+                </div>
             </div>
         </div>
-         <!--todo wrapper end-->
+        <!--todo wrapper end-->
     </div>
 
 </body>
