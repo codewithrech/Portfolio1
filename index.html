@@ -22,7 +22,7 @@
             <div class="title">
                 TODO
             </div>
-            <div class="Theme">
+            <div class="theme">
                 <img src="./assets/icon-sun.svg" alt="">
 
             </div>
@@ -34,13 +34,85 @@
                 </div>
             </div>
             <div class="new-todo-input">
-                <form>
-                    <input type="text" placeholder="Create a new todo...">
+                <form onsubmit="addItem(event)">
+                    <input id="todo-input" type="text" placeholder="Create a new todo...">
                 </form>
             </div>
 
         </div>
+        <!--todo wrapper-->
+        <div class="todo-items-wrapper">
+             <!--todo items-->
+            <div class="todo-items">
+                 <!--todo item-->
+                <div class="todo-item">
+                    <div class="check">
+                        <div class="check-mark">
+                            <img src="./assets/icon-check.svg" alt="">
 
+                        </div>
+
+                    </div>
+                    <div class="todo-text">
+                        practice javaScript
+                    </div>
+                </div>
+                <div class="todo-item">
+                    <div class="check">
+                        <div class="check-mark">
+                            <img src="./assets/icon-check.svg" alt="">
+
+                        </div>
+
+                    </div>
+                    <div class="todo-text">
+                        practice javaScript
+                    </div>
+                </div>
+                <div class="todo-item">
+                    <div class="check">
+                        <div class="check-mark">
+                            <img src="./assets/icon-check.svg" alt="">
+
+                        </div>
+
+                    </div>
+                    <div class="todo-text">
+                        practice javaScript
+                    </div>
+                </div>
+                <div class="todo-item">
+                    <div class="check">
+                        <div class="check-mark">
+                            <img src="./assets/icon-check.svg" alt="">
+
+                        </div>
+
+                    </div>
+                    <div class="todo-text">
+                        practice javaScript
+                    </div>
+                </div>
+                
+                 <!--todo item end-->
+            </div>
+             <!--todo items end-->
+            <div class="todo-items-info">
+            <div class="items-left">
+                5items left
+            </div>
+            <div class="items-status">
+                <span class="active">ALL</span>
+                <span>Active</span>
+                <span>Completed</span>
+            </div>
+            <div class="items-clear">
+                <span>Clear Completed</span>
+
+            </div>
+            </div>
+        </div>
+         <!--todo wrapper end-->
     </div>
 
 </body>
