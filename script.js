@@ -1,69 +1,83 @@
-// To add a todo list
+// // To add a todo list
 
 function addItem(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     let text = document.getElementById("todo-input");
     console.log(text.value);
     db.collection("todo-items").add({
         text: text.value,
         status: "active"
     })
- 
+
     text.value = "";
 }
 
-//to display the todo lists
+// //to display the todo lists
 function getItem() {
     db.collection("todo-items").onSnapshot((snapshot) => {
-         let items=[];
+        let items = [];
         snapshot.docs.forEach((doc) => {
             items.push({
-                id: doc.id, 
+                id: doc.id,
                 ...doc.data()
+
             })
-            console.log(items);
         })
         generateItems(items);
     })
+
 }
 
 function generateItems(items) {
     let itemsHTML = "";
     items.forEach((item) => {
         itemsHTML += `
-        <div class="todo-item">
-        <div class="check">
-            <div data-id="${item.id} class="check-mark">
-                <img src="./assets/icon-check.svg" alt="">
+       <div class="todo-item">
+       <div class="check">
+           <div data-id="${item.id}"class="check-mark ${(item.status =="completed") ?"checked":""} ">
+               <img src="./assets/icon-check.svg" alt="">
+           </div>
+       </div>
+       <div class="todo-text ${(item.status =="completed") ?"checked":""}">
+          ${item.text}
+       </div>
+   </div>
+       
+       `
 
-            </div>
-
-        </div>
-        <div class="todo-text">
-        ${item.text}
-        </div>
-    </div>
- `
-})
-document.querySelector(".todo-items").innerHTML=itemsHTML;
-createEventListeners();
+    })
+    document.querySelector(".todo-items").innerHTML = itemsHTML;
+    createEListners();
 }
-function createEventListeners(){
-    let todoCheckMarks=document.querySelectorAll(".todo-item .check-mark");
-    // todoCheckMarks.forEach((checkMark)=>{
-    // checkMark.addEventListener("click", function(){
-    //     markCompeted(checkMark.dataset.id);
-
-    //})
-//})
-console.log(todoCheckMarks);
+getItem();
+function createEListners() {
+    let todoCheckMarks = document.querySelectorAll(".todo-item .check-mark");
+    todoCheckMarks.forEach((checkMark) => {
+        checkMark.addEventListener("click", function () {
+            markCompeted(checkMark.dataset.id);
+        })
+    })
 }
+ function markCompeted(id){
+     console.log(id );
+  let item=db.collection("todo-items").doc(id);
+  item.get().then(function(doc){
+      if(doc.exists){
+let status=doc.data().status;
+if(status=="active"){
+    item.update({
+        status:"completed"
+    })
+}
+else if(status=="completed"){
+    item.update({
+        status:"active"
+    })
+}
+      }
+  })
 
+ }
 
-// function markCompeted(){
-//     db.collection("todo-items").doc()
-//     console
-// }
-  getItem();
 
 
